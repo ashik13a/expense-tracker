@@ -4,6 +4,9 @@
   "description": "REST API for Expense Tracker Full-Stack Application",
   "main": "src/server.js",
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
