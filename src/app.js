@@ -12,15 +12,11 @@ export const createApp = () => {
   // Required behind reverse proxies (e.g. Render) so express-rate-limit reads client IPs correctly
   app.set('trust proxy', 1);
 
-  const allowedOrigins = env.clientUrl
-    .split(',')
-    .map((url) => url.trim().replace(/\/+$/, ''))
-    .filter(Boolean);
-
   app.use(helmet());
+  // Allow all origins (development/convenience) while properly echoing back headers & supporting credentials
   app.use(
     cors({
-      origin: allowedOrigins,
+      origin: true,
       credentials: true,
     })
   );
